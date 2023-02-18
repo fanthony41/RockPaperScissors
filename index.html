@@ -38,28 +38,64 @@
 
   function playround(playerChoice, computerChoice)
   {
-    
-
+    let result;
+/*
     (playerChoice == computerChoice) ? console.log("Tie try again") :
-    (playerChoice == 'rock' && computerChoice == 'paper') ? lose() :
+    (playerChoice == 'rock' && computerChoice == 'paper') ?   :
     (playerChoice == 'rock' && computerChoice == 'scissors') ? win() :
     (playerChoice == 'paper' && computerChoice == 'scissors') ? lose() : 
     (playerChoice == 'paper' && computerChoice == 'rock') ? win() :
     (playerChoice == 'scissors' && computerChoice == 'rock') ? lose() :
-    win();
+    (playerChoice == 'scissors' && computerChoice == 'paper') ? win() :
+    console.log("Enter a valid choice");
+*/
+
+    if (playerChoice == computerChoice) 
+        return result = 'tie';
+    else if (playerChoice == 'rock' && computerChoice == 'paper')
+            return result = 'lose';
+        else if (playerChoice == 'rock' && computerChoice == 'scissors')
+            return result = 'win';
+        else if (playerChoice == 'paper' && computerChoice == 'scissors')
+            return result = 'lose';
+        else if (playerChoice == 'paper' && computerChoice == 'rock')
+            return result = 'win';
+        else if (playerChoice == 'scissors' && computerChoice == 'rock')
+            return result = 'lose';
+        else if (playerChoice == 'scissors' && computerChoice == 'paper')
+            return result = 'win';
+        else
+            return result = 'invalid';
   }
 
   
   let myScore = 0;
-  let comScore = 0;  
-  for (let i = 0; i < 5; i++)
+  let comScore = 0; 
+  let round = 5; 
+  for (let i = 0; i < round; i++)
   {
     let inputChoice = prompt("Choose rock, paper or scissors");
-  let computerChoice = getComputerChoice();
+    let computerChoice = getComputerChoice();
+    inputChoice = inputChoice.toLowerCase();
+    let result = playround(inputChoice, computerChoice);
+    if (result == 'win')
+    {
+        win();
+    }
+    else if (result == 'lose')
+    {
+        lose();
+    }
+    else if (result == 'tie')
+    {
+        tie();
+    }
+    else if (result == 'invalid')
+    {
+        invalid();
+    }
 
-  inputChoice = inputChoice.toLowerCase();
-    playround(inputChoice, computerChoice);
-    console.log(inputChoice + " " + computerChoice + myScore + " : " + comScore)
+    console.log("(" +inputChoice + " " + computerChoice + ")" + myScore + " : " + comScore)
   }
 
   function win()
@@ -67,10 +103,22 @@
     console.log("You win!");
     myScore ++;
   }
+
   function lose()
   {
     console.log("You lose hah");
     comScore ++;
+  }
+
+  function invalid()
+  {
+    console.log("Not a valid choice");
+  }
+
+  function tie()
+  {
+    console.log("TIE, try again");
+    round ++;
   }
  
   
