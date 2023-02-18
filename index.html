@@ -41,25 +41,36 @@
     
 
     (playerChoice == computerChoice) ? console.log("Tie try again") :
-    (playerChoice == 'rock' && computerChoice == 'paper') ? console.log("You lose dumb") :
-    (playerChoice == 'rock' && computerChoice == 'scissors') ? console.log("You win!") :
-    (playerChoice == 'paper' && computerChoice == 'scissors') ? console.log("You lose dumbass") : 
-    (playerChoice == 'paper' && computerChoice == 'rock') ? console.log("You win!") :
-    (playerChoice == 'scissors' && computerChoice == 'rock') ? console.log("You lose dumbass") :
-    console.log("You win");
+    (playerChoice == 'rock' && computerChoice == 'paper') ? lose() :
+    (playerChoice == 'rock' && computerChoice == 'scissors') ? win() :
+    (playerChoice == 'paper' && computerChoice == 'scissors') ? lose() : 
+    (playerChoice == 'paper' && computerChoice == 'rock') ? win() :
+    (playerChoice == 'scissors' && computerChoice == 'rock') ? lose() :
+    win();
   }
 
   
-
+  let myScore = 0;
+  let comScore = 0;  
   for (let i = 0; i < 5; i++)
   {
     let inputChoice = prompt("Choose rock, paper or scissors");
   let computerChoice = getComputerChoice();
-  
 
   inputChoice = inputChoice.toLowerCase();
     playround(inputChoice, computerChoice);
-    console.log(inputChoice + " " + computerChoice)
+    console.log(inputChoice + " " + computerChoice + myScore + " : " + comScore)
+  }
+
+  function win()
+  {
+    console.log("You win!");
+    myScore ++;
+  }
+  function lose()
+  {
+    console.log("You lose hah");
+    comScore ++;
   }
  
   
