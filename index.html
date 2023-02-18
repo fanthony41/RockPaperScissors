@@ -38,25 +38,29 @@
 
   function playround(playerChoice, computerChoice)
   {
-    if (playerChoice == computerChoice)
-    {
-        console.log("Tie Try again");
-    }
-    else if(playerChoice == 'rock' && computerChoice == 'paper')
-    {
-        console.log("You lose dumbass");
-    }
+    
 
-    //(playerChoice == computerChoice) ? console.log("Tie try again")
+    (playerChoice == computerChoice) ? console.log("Tie try again") :
+    (playerChoice == 'rock' && computerChoice == 'paper') ? console.log("You lose dumb") :
+    (playerChoice == 'rock' && computerChoice == 'scissors') ? console.log("You win!") :
+    (playerChoice == 'paper' && computerChoice == 'scissors') ? console.log("You lose dumbass") : 
+    (playerChoice == 'paper' && computerChoice == 'rock') ? console.log("You win!") :
+    (playerChoice == 'scissors' && computerChoice == 'rock') ? console.log("You lose dumbass") :
+    console.log("You win");
   }
 
-  let inputChoice = prompt("Choose rock, paper or scissors");
+  
+
+  for (let i = 0; i < 5; i++)
+  {
+    let inputChoice = prompt("Choose rock, paper or scissors");
   let computerChoice = getComputerChoice();
-  console.log("you chose " + inputChoice);
-  console.log("computer chose " + computerChoice);
-  console.log(inputChoice.toLowerCase());
+  
 
   inputChoice = inputChoice.toLowerCase();
+    playround(inputChoice, computerChoice);
+    console.log(inputChoice + " " + computerChoice)
+  }
  
   
 </script>
