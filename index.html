@@ -25,14 +25,93 @@
 
   <body>
     <div class="container"> 
-      <button type="button">Rock</button>
-      <button type="button">Paper</button>
-      <button type="button">Scissors</button>
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="scissors">Scissors</button>
+    </div>
+    <div class="results">
+      <p id="result">
     </div>
       
 </body>
 
 <script>
+  let myScore = 0;
+  let comScore = 0; 
+  let round = 0; 
+  let computerChoice = getComputerChoice();
+  let result;
+
+  const rockButton = document.getElementById("rock");
+  const paperButton = document.getElementById("paper");
+  const scissorsButton = document.getElementById("scissors");
+  result = rockButton.addEventListener("click",rockClicked);
+  result = paperButton.addEventListener("click",paperClicked);
+  result = scissorsButton.addEventListener("click",scissorsClicked);
+  function display(){
+  if (result == 'win')
+    {
+        win();
+    }
+    else if (result == 'lose')
+    {
+        lose();
+    }
+    else if (result == 'tie')
+    {
+        tie();
+    }
+    else if (result == 'invalid')
+    {
+        invalid();
+    }
+  }
+  function win(){
+    document.getElementById("result").innerHTML="YOU WIN the round  " + computerChoice ;
+    console.log("win");
+    
+  }
+
+  function lose(){
+    document.getElementById("result").innerHTML="you lost the round  " + computerChoice ;
+    console.log("lose");
+    
+  }
+
+  function tie(){
+    document.getElementById("result").innerHTML = "TIE" + computerChoice;
+    console.log("tie");
+  }
+
+
+  
+
+
+
+
+  function rockClicked() {
+   computerChoice = getComputerChoice();
+   console.log("rock clicked com:" + computerChoice);
+   result = playround('rock', computerChoice);
+   display();
+
+  }
+
+  function paperClicked() {
+    computerChoice = getComputerChoice();
+    console.log("paper clicked com:" + computerChoice);
+    result = playround('paper', computerChoice);
+    display();
+  }
+
+  function scissorsClicked() {
+    computerChoice = getComputerChoice();
+    console.log("scissors clicked com:" + computerChoice);
+    result = playround('scissors', computerChoice);
+    display();
+  }
+
+
   function getComputerChoice()
   {
     const choices = ["rock", "paper", "scissors"];
@@ -74,14 +153,14 @@
   }
 
   
-  let myScore = 0;
+  /*let myScore = 0;
   let comScore = 0; 
   let round = 5; 
   for (let i = 0; i < round; i++)
   {
-    let inputChoice = prompt("Choose rock, paper or scissors");
+    //let inputChoice = prompt("Choose rock, paper or scissors");
     let computerChoice = getComputerChoice();
-    inputChoice = inputChoice.toLowerCase();
+   // inputChoice = inputChoice.toLowerCase();
     let result = playround(inputChoice, computerChoice);
     if (result == 'win')
     {
@@ -125,7 +204,7 @@
   {
     console.log("TIE, try again");
     round ++;
-  }
+  }*/
  
   
 </script>
